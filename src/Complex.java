@@ -7,7 +7,7 @@ public class Complex {
         real = x;
         imaginary = y;
     }
-    
+
     //allows other progams to access the separate parts
     public double getRe(){
         return real;
@@ -60,17 +60,31 @@ public class Complex {
     public String toString(){
         return Double.toString(this.real) + "+" + Double.toString(this.imaginary) + "i";
     }
-/*
-    public static void main(String[] args) {
-        Complex een = new Complex(1,2);
-        Complex twee = new Complex(5,8);
-        Complex drie = new Complex(8,3);
 
-        System.out.println(een.add(twee));
-        System.out.println(een.multiply(drie));
-        System.out.println(drie.divide(een));
-        System.out.println(twee.toString());
-        System.out.println(twee.add(twee));
+    public Complex power(int getal){
+        Complex newComplex = this;
+        if (getal == 0){
+            return new Complex(0,0);
         }
-*/
+        for (int i = 0 ; i < getal-1 ; i++){
+            newComplex = newComplex.multiply(this);
+        }
+        return newComplex;
+    }
+    /*
+    public class ComplexTest {
+        public static void main(String[] args) {
+            Complex een = new Complex(1, 2);
+            Complex twee = new Complex(5, 8);
+            Complex drie = new Complex(8, 3);
+
+            System.out.println(een.power(2));
+            System.out.println(een.power(3));
+            System.out.println(drie.divide(een));
+            System.out.println(twee.toString());
+            System.out.println(twee.add(twee));
+        }
+    */
+    }
+
 }
